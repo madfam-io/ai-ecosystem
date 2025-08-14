@@ -1,0 +1,236 @@
+/**
+ * AI Ecosystem Report - Main Stylesheet
+ * Modern CSS with custom properties and imports
+ */
+
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Import theme variables */
+@import './themes/variables.css';
+
+/* Import component styles */
+@import './components/base.css';
+@import './components/header.css';
+@import './components/navigation.css';
+@import './components/layout.css';
+@import './components/cards.css';
+@import './components/forms.css';
+@import './components/buttons.css';
+@import './components/charts.css';
+@import './components/animations.css';
+@import './components/accessibility.css';
+@import './components/responsive.css';
+
+/* Module-specific styles */
+@import './components/dashboard.css';
+@import './components/hardware.css';
+@import './components/models.css';
+@import './components/agents.css';
+@import './components/platforms.css';
+@import './components/applications.css';
+@import './components/future.css';
+@import './components/glossary.css';
+
+/* Utility styles */
+@import './components/utilities.css';
+
+/* Loading and error states */
+.init-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+}
+
+.error-content {
+  background: white;
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+  max-width: 500px;
+  margin: var(--spacing-md);
+}
+
+.error-content h2 {
+  color: var(--error-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+.error-content details {
+  text-align: left;
+  margin: var(--spacing-lg) 0;
+}
+
+.error-content pre {
+  background: var(--surface-elevated);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  overflow-x: auto;
+  font-size: var(--font-size-sm);
+}
+
+.error-content button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.error-content button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-1px);
+}
+
+/* Search highlights */
+.search-highlight {
+  animation: searchPulse 1s ease-in-out 2;
+  background: rgba(255, 235, 59, 0.3);
+  border-radius: var(--border-radius-sm);
+}
+
+@keyframes searchPulse {
+  0%, 100% { background: rgba(255, 235, 59, 0.3); }
+  50% { background: rgba(255, 235, 59, 0.6); }
+}
+
+.search-match {
+  background: var(--warning-color);
+  color: var(--text-primary);
+  padding: 0.1em 0.2em;
+  border-radius: 0.2em;
+  font-weight: 600;
+}
+
+.search-notification {
+  background: var(--surface-color);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  font-size: var(--font-size-sm);
+  max-width: 300px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyboard navigation support */
+.keyboard-navigation *:focus {
+  outline: 3px solid var(--secondary-color);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+
+/* High contrast mode support */
+.high-contrast {
+  --background-color: #000000;
+  --surface-color: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #000000;
+  --border-color: #000000;
+  --primary-color: #0000ff;
+  --secondary-color: #ff0000;
+}
+
+/* Reduced motion support */
+.reduced-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.reduced-motion .loading-spinner {
+  animation: none;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--secondary-color);
+}
+
+/* Print styles */
+@media print {
+  .sidebar-nav,
+  .scroll-top-btn,
+  .loading-indicator,
+  .search-container,
+  .search-notification {
+    display: none !important;
+  }
+
+  .container {
+    flex-direction: column;
+    max-width: none;
+  }
+
+  .content-section {
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+    page-break-inside: avoid;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .main-header {
+    position: static;
+    box-shadow: none;
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  .metric-card,
+  .framework-card,
+  .interface-card {
+    break-inside: avoid;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #0f172a;
+    --surface-color: #1e293b;
+    --surface-elevated: #334155;
+    --border-color: #475569;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+  }
+
+  .search-match {
+    background: #fbbf24;
+    color: #000000;
+  }
+}
+
+/* Performance optimizations */
+.metric-card,
+.framework-card,
+.workflow-step,
+.trend-card,
+.interface-card {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.chart-container {
+  contain: layout style paint;
+  isolation: isolate;
+}

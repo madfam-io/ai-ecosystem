@@ -1,0 +1,75 @@
+/**
+ * Card component styles
+ */
+
+.metric-card,
+.framework-card,
+.platform-card,
+.interface-card {
+  background: linear-gradient(135deg, var(--surface-color) 0%, var(--surface-elevated) 100%);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-xl);
+  border: 2px solid var(--border-color);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.metric-card::before,
+.framework-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+}
+
+.metric-card:hover,
+.framework-card:hover,
+.interface-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--secondary-color);
+}
+
+.metric-value {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin: var(--spacing-md) 0;
+  line-height: 1;
+}
+
+.metric-description {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+/* Card grids */
+.market-metrics,
+.platform-grid,
+.framework-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+@media (max-width: 768px) {
+  .market-metrics,
+  .platform-grid,
+  .framework-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metric-card,
+  .framework-card,
+  .platform-card {
+    min-width: auto;
+  }
+}
