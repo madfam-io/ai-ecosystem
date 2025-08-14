@@ -11,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    
     <!-- Navigation Header -->
     <header class="main-header">
         <div class="header-content">
@@ -836,25 +839,1766 @@
             <!-- Section 4: Platform Ecosystem -->
             <section id="section-4" class="content-section">
                 <h2>Section 4: The Platform and Access Ecosystem</h2>
-                <!-- Platform comparison tools, serverless calculators, interface demos -->
+                <p class="section-intro">A diverse ecosystem of platforms and tools that provide access to AI capabilities, catering to users from individual developers to large enterprises.</p>
+
+                <!-- Serverless Inference Platform Comparison -->
+                <article id="serverless-apis" class="subsection">
+                    <h3>4.1 Serverless Inference Platforms: The Gateway to AI</h3>
+                    
+                    <div class="platform-overview">
+                        <p>Serverless inference platforms allow developers to access powerful AI models via simple APIs without managing infrastructure. The pricing model is consumption-based, making it cost-effective for varying workloads.</p>
+                    </div>
+
+                    <!-- Platform Comparison Tool -->
+                    <div class="platform-comparison">
+                        <h4>Interactive Platform Comparison</h4>
+                        <div class="comparison-controls">
+                            <div class="filter-group">
+                                <label for="platformFilter">Filter by Focus:</label>
+                                <select id="platformFilter">
+                                    <option value="all">All Platforms</option>
+                                    <option value="enterprise">Enterprise</option>
+                                    <option value="developer">Developer-Focused</option>
+                                    <option value="cost-effective">Cost-Effective</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="providerFilter">Provider Type:</label>
+                                <select id="providerFilter">
+                                    <option value="all">All Providers</option>
+                                    <option value="major-cloud">Major Cloud</option>
+                                    <option value="specialized">Specialized</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="platform-grid" id="platformGrid">
+                            <!-- Platform cards will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Deployment Cost Calculator -->
+                    <div class="deployment-calculator">
+                        <h4>Deployment Cost Calculator</h4>
+                        <div class="calculator-container">
+                            <div class="calculator-inputs">
+                                <div class="input-group">
+                                    <label for="deploymentType">Deployment Type:</label>
+                                    <select id="deploymentType">
+                                        <option value="serverless">Serverless API</option>
+                                        <option value="dedicated">Dedicated Instance</option>
+                                        <option value="self-hosted">Self-Hosted</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="requestsPerMonth">Requests per Month:</label>
+                                    <input type="number" id="requestsPerMonth" value="100000" min="1000" step="1000">
+                                </div>
+                                <div class="input-group">
+                                    <label for="avgTokensPerRequest">Avg Tokens per Request:</label>
+                                    <input type="number" id="avgTokensPerRequest" value="1000" min="100" step="100">
+                                </div>
+                                <div class="input-group">
+                                    <label for="modelSize">Model Complexity:</label>
+                                    <select id="modelSize">
+                                        <option value="small">Small (7B parameters)</option>
+                                        <option value="medium">Medium (70B parameters)</option>
+                                        <option value="large">Large (405B+ parameters)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="cost-breakdown" id="costBreakdown">
+                                <!-- Cost breakdown will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Model Hubs and Marketplaces -->
+                <article id="model-hubs" class="subsection">
+                    <h3>4.2 Model Hubs: The Repositories of AI Innovation</h3>
+                    
+                    <!-- Model Hub Explorer -->
+                    <div class="hub-explorer">
+                        <h4>Model Hub Ecosystem</h4>
+                        <div class="hub-tabs">
+                            <button class="hub-tab-btn active" data-hub="huggingface">Hugging Face</button>
+                            <button class="hub-tab-btn" data-hub="google">Google Model Garden</button>
+                            <button class="hub-tab-btn" data-hub="github">GitHub Models</button>
+                            <button class="hub-tab-btn" data-hub="replicate">Replicate</button>
+                        </div>
+
+                        <div class="hub-content">
+                            <div id="huggingface-hub" class="hub-tab-content active">
+                                <div class="hub-stats">
+                                    <div class="stat-item">
+                                        <h5>1M+</h5>
+                                        <p>Models & Datasets</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5>Open Source</h5>
+                                        <p>Community Driven</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5>Research Focus</h5>
+                                        <p>Latest Models</p>
+                                    </div>
+                                </div>
+                                <div class="hub-features">
+                                    <h5>Key Features:</h5>
+                                    <ul>
+                                        <li>Transformers library integration</li>
+                                        <li>Interactive model demos (Spaces)</li>
+                                        <li>Version control for models</li>
+                                        <li>Community collaboration tools</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div id="google-hub" class="hub-tab-content">
+                                <div class="hub-stats">
+                                    <div class="stat-item">
+                                        <h5>150+</h5>
+                                        <p>Curated Models</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5>Enterprise</h5>
+                                        <p>Production Ready</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5>Vertex AI</h5>
+                                        <p>Integrated Platform</p>
+                                    </div>
+                                </div>
+                                <div class="hub-features">
+                                    <h5>Key Features:</h5>
+                                    <ul>
+                                        <li>One-click deployment to Vertex AI</li>
+                                        <li>Optimized for Google Cloud TPUs</li>
+                                        <li>Enterprise security and compliance</li>
+                                        <li>Google's proprietary models included</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div id="github-hub" class="hub-tab-content">
+                                <div class="hub-stats">
+                                    <div class="stat-item">
+                                        <h5>Azure Powered</h5>
+                                        <p>Microsoft Cloud</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5>Developer Focus</h5>
+                                        <p>Code Integration</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5>GitHub Flow</h5>
+                                        <p>Familiar Workflow</p>
+                                    </div>
+                                </div>
+                                <div class="hub-features">
+                                    <h5>Key Features:</h5>
+                                    <ul>
+                                        <li>Integrated with GitHub development workflow</li>
+                                        <li>OpenAI and Meta models available</li>
+                                        <li>Azure AI integration</li>
+                                        <li>Free tier for exploration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div id="replicate-hub" class="hub-tab-content">
+                                <div class="hub-stats">
+                                    <div class="stat-item">
+                                        <h5>Easy Deploy</h5>
+                                        <p>Simple API</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5>Pay per Use</h5>
+                                        <p>No Infrastructure</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h5>Community</h5>
+                                        <p>Open Models</p>
+                                    </div>
+                                </div>
+                                <div class="hub-features">
+                                    <h5>Key Features:</h5>
+                                    <ul>
+                                        <li>Cog containerization for easy deployment</li>
+                                        <li>Large library of community models</li>
+                                        <li>GPU-optimized inference</li>
+                                        <li>Simple REST API access</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Model Discovery Tool -->
+                    <div class="model-discovery">
+                        <h4>Model Discovery Assistant</h4>
+                        <div class="discovery-form">
+                            <div class="discovery-inputs">
+                                <div class="input-group">
+                                    <label for="taskType">Task Type:</label>
+                                    <select id="taskType">
+                                        <option value="">Select a task...</option>
+                                        <option value="text-generation">Text Generation</option>
+                                        <option value="code-generation">Code Generation</option>
+                                        <option value="image-generation">Image Generation</option>
+                                        <option value="text-to-speech">Text-to-Speech</option>
+                                        <option value="translation">Translation</option>
+                                        <option value="summarization">Summarization</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="performanceNeeds">Performance Requirements:</label>
+                                    <select id="performanceNeeds">
+                                        <option value="">Select performance level...</option>
+                                        <option value="basic">Basic (Good enough for prototyping)</option>
+                                        <option value="production">Production (Reliable for real users)</option>
+                                        <option value="sota">State-of-the-art (Best available quality)</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="licensePreference">License Preference:</label>
+                                    <select id="licensePreference">
+                                        <option value="">No preference</option>
+                                        <option value="open-source">Open Source Only</option>
+                                        <option value="commercial">Commercial Use Allowed</option>
+                                        <option value="research">Research Use Only</option>
+                                    </select>
+                                </div>
+                                <button id="findModels" class="discovery-btn">Find Recommended Models</button>
+                            </div>
+                            
+                            <div class="discovery-results" id="discoveryResults">
+                                <!-- Results will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- User Interfaces -->
+                <article id="interfaces" class="subsection">
+                    <h3>4.3 Human-AI Interfaces: How We Interact with Intelligence</h3>
+                    
+                    <!-- Interface Paradigm Comparison -->
+                    <div class="interface-comparison">
+                        <h4>Interface Paradigm Explorer</h4>
+                        <div class="interface-grid">
+                            <div class="interface-card chat-interface">
+                                <div class="interface-header">
+                                    <h5>💬 Chat Interfaces</h5>
+                                    <span class="interface-badge popular">Most Popular</span>
+                                </div>
+                                <div class="interface-demo">
+                                    <div class="mock-chat">
+                                        <div class="chat-message user">Explain quantum computing</div>
+                                        <div class="chat-message ai">Quantum computing uses quantum mechanical phenomena...</div>
+                                    </div>
+                                </div>
+                                <div class="interface-details">
+                                    <div class="pros-cons">
+                                        <div class="pros">
+                                            <h6>✅ Advantages:</h6>
+                                            <ul>
+                                                <li>Intuitive and natural</li>
+                                                <li>No technical skills required</li>
+                                                <li>Conversational context</li>
+                                                <li>Wide accessibility</li>
+                                            </ul>
+                                        </div>
+                                        <div class="cons">
+                                            <h6>❌ Limitations:</h6>
+                                            <ul>
+                                                <li>Limited workflow automation</li>
+                                                <li>Difficult to handle complex tasks</li>
+                                                <li>No visual programming</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="use-cases">
+                                        <h6>Best for:</h6>
+                                        <p>General inquiries, creative writing, learning, customer support</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="interface-card node-interface">
+                                <div class="interface-header">
+                                    <h5>🔗 Node-Based Workflows</h5>
+                                    <span class="interface-badge technical">Low-Code</span>
+                                </div>
+                                <div class="interface-demo">
+                                    <div class="mock-workflow">
+                                        <div class="workflow-node">📧 Email</div>
+                                        <div class="workflow-arrow">→</div>
+                                        <div class="workflow-node">🤖 AI Analysis</div>
+                                        <div class="workflow-arrow">→</div>
+                                        <div class="workflow-node">📊 Report</div>
+                                    </div>
+                                </div>
+                                <div class="interface-details">
+                                    <div class="pros-cons">
+                                        <div class="pros">
+                                            <h6>✅ Advantages:</h6>
+                                            <ul>
+                                                <li>Visual workflow design</li>
+                                                <li>Complex automation possible</li>
+                                                <li>No coding required</li>
+                                                <li>Reusable components</li>
+                                            </ul>
+                                        </div>
+                                        <div class="cons">
+                                            <h6>❌ Limitations:</h6>
+                                            <ul>
+                                                <li>Learning curve for complex workflows</li>
+                                                <li>Can become cluttered</li>
+                                                <li>Limited by available nodes</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="use-cases">
+                                        <h6>Best for:</h6>
+                                        <p>Business process automation, data pipelines, multi-step workflows</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="interface-card cli-interface">
+                                <div class="interface-header">
+                                    <h5>⌨️ Command Line Interface</h5>
+                                    <span class="interface-badge expert">Expert Level</span>
+                                </div>
+                                <div class="interface-demo">
+                                    <div class="mock-terminal">
+                                        <div class="terminal-line">$ llm "Summarize this document" < report.txt</div>
+                                        <div class="terminal-output">Generated summary saved to summary.txt</div>
+                                    </div>
+                                </div>
+                                <div class="interface-details">
+                                    <div class="pros-cons">
+                                        <div class="pros">
+                                            <h6>✅ Advantages:</h6>
+                                            <ul>
+                                                <li>Extremely fast and efficient</li>
+                                                <li>Scriptable and automatable</li>
+                                                <li>Precise control</li>
+                                                <li>Integration with dev tools</li>
+                                            </ul>
+                                        </div>
+                                        <div class="cons">
+                                            <h6>❌ Limitations:</h6>
+                                            <ul>
+                                                <li>Requires technical expertise</li>
+                                                <li>Steep learning curve</li>
+                                                <li>Not accessible to all users</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="use-cases">
+                                        <h6>Best for:</h6>
+                                        <p>Developers, system administrators, batch processing, automation scripts</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interface Selection Quiz -->
+                    <div class="interface-quiz">
+                        <h4>Find Your Ideal AI Interface</h4>
+                        <div class="quiz-container">
+                            <div class="quiz-question">
+                                <h5>What describes your technical background?</h5>
+                                <div class="quiz-options">
+                                    <label><input type="radio" name="technical" value="beginner"> Complete beginner with technology</label>
+                                    <label><input type="radio" name="technical" value="casual"> Comfortable with basic computer tasks</label>
+                                    <label><input type="radio" name="technical" value="intermediate"> Some technical skills, can learn new tools</label>
+                                    <label><input type="radio" name="technical" value="expert"> Software developer or technical expert</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>What type of AI tasks do you want to accomplish?</h5>
+                                <div class="quiz-options">
+                                    <label><input type="radio" name="tasks" value="simple"> Simple questions and basic assistance</label>
+                                    <label><input type="radio" name="tasks" value="creative"> Creative work like writing and brainstorming</label>
+                                    <label><input type="radio" name="tasks" value="workflow"> Automate business processes and workflows</label>
+                                    <label><input type="radio" name="tasks" value="development"> Integrate AI into software development</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>How important is speed and efficiency to you?</h5>
+                                <div class="quiz-options">
+                                    <label><input type="radio" name="speed" value="casual"> I prefer easy-to-use over fast</label>
+                                    <label><input type="radio" name="speed" value="balanced"> I want a good balance of both</label>
+                                    <label><input type="radio" name="speed" value="efficiency"> Speed and efficiency are critical</label>
+                                </div>
+                            </div>
+
+                            <button id="getInterfaceRecommendation" class="quiz-submit-btn">Get My Recommendation</button>
+                            
+                            <div class="quiz-result" id="interfaceQuizResult">
+                                <!-- Quiz result will be displayed here -->
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </section>
 
             <!-- Section 5: Practical Applications -->
             <section id="section-5" class="content-section">
                 <h2>Section 5: Practical Application and Strategic Tool Selection</h2>
-                <!-- Tool selection wizard, ROI calculators, business function mapping -->
+                <p class="section-intro">Understanding the AI landscape is only valuable when translated into practical action. This section provides frameworks for selecting the right AI tools for specific business functions.</p>
+
+                <!-- Business Operations -->
+                <article id="business-operations" class="subsection">
+                    <h3>5.1 AI for Business Operations: Transforming Project Management and Workflow Automation</h3>
+                    
+                    <div class="business-overview">
+                        <p>AI is fundamentally transforming project management by moving it from a reactive, manual process to a proactive, data-driven discipline. Modern AI tools can automate routine tasks, predict risks, optimize resource allocation, and provide real-time insights.</p>
+                    </div>
+
+                    <!-- Business Function Mapper -->
+                    <div class="function-mapper">
+                        <h4>Business Function AI Impact Assessment</h4>
+                        <div class="function-grid">
+                            <div class="function-card" data-function="project-management">
+                                <div class="function-header">
+                                    <h5>📋 Project Management</h5>
+                                    <div class="impact-level high">High Impact</div>
+                                </div>
+                                <div class="function-details">
+                                    <div class="ai-capabilities">
+                                        <h6>AI Capabilities:</h6>
+                                        <ul>
+                                            <li>Predictive analytics for timeline forecasting</li>
+                                            <li>Intelligent resource allocation</li>
+                                            <li>Automated reporting and status updates</li>
+                                            <li>Risk assessment and bottleneck prediction</li>
+                                        </ul>
+                                    </div>
+                                    <div class="recommended-tools">
+                                        <h6>Recommended Tools:</h6>
+                                        <div class="tool-tags">
+                                            <span class="tool-tag">Wrike AI</span>
+                                            <span class="tool-tag">monday.com</span>
+                                            <span class="tool-tag">Asana Intelligence</span>
+                                        </div>
+                                    </div>
+                                    <div class="roi-potential">
+                                        <h6>ROI Potential:</h6>
+                                        <div class="roi-bar">
+                                            <div class="roi-fill" style="width: 85%"></div>
+                                            <span>85% efficiency gain</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="function-card" data-function="customer-support">
+                                <div class="function-header">
+                                    <h5>🎧 Customer Support</h5>
+                                    <div class="impact-level very-high">Very High Impact</div>
+                                </div>
+                                <div class="function-details">
+                                    <div class="ai-capabilities">
+                                        <h6>AI Capabilities:</h6>
+                                        <ul>
+                                            <li>24/7 automated query resolution</li>
+                                            <li>Intelligent ticket routing and prioritization</li>
+                                            <li>Sentiment analysis and escalation</li>
+                                            <li>Knowledge base auto-generation</li>
+                                        </ul>
+                                    </div>
+                                    <div class="recommended-tools">
+                                        <h6>Recommended Tools:</h6>
+                                        <div class="tool-tags">
+                                            <span class="tool-tag">Intercom</span>
+                                            <span class="tool-tag">Zendesk AI</span>
+                                            <span class="tool-tag">Claude for Support</span>
+                                        </div>
+                                    </div>
+                                    <div class="roi-potential">
+                                        <h6>ROI Potential:</h6>
+                                        <div class="roi-bar">
+                                            <div class="roi-fill" style="width: 92%"></div>
+                                            <span>92% response time reduction</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="function-card" data-function="marketing-sales">
+                                <div class="function-header">
+                                    <h5>📈 Marketing & Sales</h5>
+                                    <div class="impact-level high">High Impact</div>
+                                </div>
+                                <div class="function-details">
+                                    <div class="ai-capabilities">
+                                        <h6>AI Capabilities:</h6>
+                                        <ul>
+                                            <li>Personalized content generation at scale</li>
+                                            <li>Lead scoring and qualification</li>
+                                            <li>A/B testing optimization</li>
+                                            <li>Customer journey mapping</li>
+                                        </ul>
+                                    </div>
+                                    <div class="recommended-tools">
+                                        <h6>Recommended Tools:</h6>
+                                        <div class="tool-tags">
+                                            <span class="tool-tag">HubSpot AI</span>
+                                            <span class="tool-tag">Jasper</span>
+                                            <span class="tool-tag">Salesforce Einstein</span>
+                                        </div>
+                                    </div>
+                                    <div class="roi-potential">
+                                        <h6>ROI Potential:</h6>
+                                        <div class="roi-bar">
+                                            <div class="roi-fill" style="width: 78%"></div>
+                                            <span>78% campaign efficiency</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="function-card" data-function="finance-accounting">
+                                <div class="function-header">
+                                    <h5>💰 Finance & Accounting</h5>
+                                    <div class="impact-level medium">Medium Impact</div>
+                                </div>
+                                <div class="function-details">
+                                    <div class="ai-capabilities">
+                                        <h6>AI Capabilities:</h6>
+                                        <ul>
+                                            <li>Automated expense categorization</li>
+                                            <li>Fraud detection and prevention</li>
+                                            <li>Financial forecasting and modeling</li>
+                                            <li>Invoice processing automation</li>
+                                        </ul>
+                                    </div>
+                                    <div class="recommended-tools">
+                                        <h6>Recommended Tools:</h6>
+                                        <div class="tool-tags">
+                                            <span class="tool-tag">QuickBooks AI</span>
+                                            <span class="tool-tag">Xero</span>
+                                            <span class="tool-tag">AppZen</span>
+                                        </div>
+                                    </div>
+                                    <div class="roi-potential">
+                                        <h6>ROI Potential:</h6>
+                                        <div class="roi-bar">
+                                            <div class="roi-fill" style="width: 65%"></div>
+                                            <span>65% processing time reduction</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ROI Calculator -->
+                    <div class="roi-calculator">
+                        <h4>AI Implementation ROI Calculator</h4>
+                        <div class="calculator-form">
+                            <div class="calculator-inputs">
+                                <div class="input-group">
+                                    <label for="businessFunction">Business Function:</label>
+                                    <select id="businessFunction">
+                                        <option value="">Select function...</option>
+                                        <option value="customer-support">Customer Support</option>
+                                        <option value="project-management">Project Management</option>
+                                        <option value="marketing-sales">Marketing & Sales</option>
+                                        <option value="finance-accounting">Finance & Accounting</option>
+                                        <option value="hr-recruiting">HR & Recruiting</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="teamSize">Team Size:</label>
+                                    <input type="number" id="teamSize" value="10" min="1" max="1000">
+                                </div>
+                                <div class="input-group">
+                                    <label for="avgSalary">Average Salary ($):</label>
+                                    <input type="number" id="avgSalary" value="75000" min="30000" step="5000">
+                                </div>
+                                <div class="input-group">
+                                    <label for="hoursPerWeek">Hours Spent on Relevant Tasks/Week:</label>
+                                    <input type="number" id="hoursPerWeek" value="20" min="1" max="40">
+                                </div>
+                                <div class="input-group">
+                                    <label for="toolCost">Annual AI Tool Cost ($):</label>
+                                    <input type="number" id="toolCost" value="10000" min="1000" step="1000">
+                                </div>
+                            </div>
+                            
+                            <button id="calculateROI" class="calculate-btn">Calculate ROI</button>
+                            
+                            <div class="roi-results" id="roiResults">
+                                <!-- ROI results will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Creative Production -->
+                <article id="creative-production" class="subsection">
+                    <h3>5.2 AI for Creative Production: Revolutionizing Media, Design, and Content</h3>
+                    
+                    <!-- Creative Tools Matrix -->
+                    <div class="creative-matrix">
+                        <h4>Creative AI Tools by Medium and Use Case</h4>
+                        <div class="matrix-container">
+                            <div class="matrix-grid">
+                                <div class="matrix-header"></div>
+                                <div class="matrix-header">Text & Writing</div>
+                                <div class="matrix-header">Images & Graphics</div>
+                                <div class="matrix-header">Video Production</div>
+                                <div class="matrix-header">Audio & Music</div>
+
+                                <div class="matrix-row-header">Consumer/Individual</div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>ChatGPT, Claude</strong>
+                                        <p>General writing, brainstorming, editing</p>
+                                        <span class="price-tag">$20/month</span>
+                                    </div>
+                                </div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>Midjourney, DALL-E</strong>
+                                        <p>Artistic creation, concept art</p>
+                                        <span class="price-tag">$30/month</span>
+                                    </div>
+                                </div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>RunwayML, Pika</strong>
+                                        <p>Short clips, social media content</p>
+                                        <span class="price-tag">$15/month</span>
+                                    </div>
+                                </div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>Suno, Udio</strong>
+                                        <p>Music creation, podcasts</p>
+                                        <span class="price-tag">$10/month</span>
+                                    </div>
+                                </div>
+
+                                <div class="matrix-row-header">Small Business</div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>Jasper, Copy.ai</strong>
+                                        <p>Marketing copy, brand content</p>
+                                        <span class="price-tag">$40/month</span>
+                                    </div>
+                                </div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>Canva AI, Adobe Firefly</strong>
+                                        <p>Marketing materials, social posts</p>
+                                        <span class="price-tag">$15/month</span>
+                                    </div>
+                                </div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>Synthesia, HeyGen</strong>
+                                        <p>Training videos, explainers</p>
+                                        <span class="price-tag">$30/month</span>
+                                    </div>
+                                </div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>ElevenLabs, Murf</strong>
+                                        <p>Voiceovers, audio branding</p>
+                                        <span class="price-tag">$22/month</span>
+                                    </div>
+                                </div>
+
+                                <div class="matrix-row-header">Enterprise</div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>Custom LLM Integration</strong>
+                                        <p>Brand-safe, compliant content</p>
+                                        <span class="price-tag">$500+/month</span>
+                                    </div>
+                                </div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>Adobe Creative Cloud AI</strong>
+                                        <p>Professional design workflows</p>
+                                        <span class="price-tag">$80/month</span>
+                                    </div>
+                                </div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>Google Veo, Custom Solutions</strong>
+                                        <p>High-quality corporate video</p>
+                                        <span class="price-tag">$1000+/month</span>
+                                    </div>
+                                </div>
+                                <div class="matrix-cell">
+                                    <div class="tool-recommendation">
+                                        <strong>ElevenLabs Enterprise</strong>
+                                        <p>Voice cloning, multilingual</p>
+                                        <span class="price-tag">$330/month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Creative Workflow Builder -->
+                    <div class="workflow-builder">
+                        <h4>AI-Powered Creative Workflow Designer</h4>
+                        <div class="workflow-designer">
+                            <div class="workflow-inputs">
+                                <div class="input-group">
+                                    <label for="projectType">Project Type:</label>
+                                    <select id="projectType">
+                                        <option value="">Select project type...</option>
+                                        <option value="social-media-campaign">Social Media Campaign</option>
+                                        <option value="product-launch">Product Launch</option>
+                                        <option value="training-materials">Training Materials</option>
+                                        <option value="brand-content">Brand Content</option>
+                                        <option value="video-series">Video Series</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="timelineNeeds">Timeline:</label>
+                                    <select id="timelineNeeds">
+                                        <option value="">Select timeline...</option>
+                                        <option value="rush">Rush (1-3 days)</option>
+                                        <option value="standard">Standard (1-2 weeks)</option>
+                                        <option value="extended">Extended (1+ months)</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="qualityLevel">Quality Requirements:</label>
+                                    <select id="qualityLevel">
+                                        <option value="">Select quality level...</option>
+                                        <option value="prototype">Prototype/Draft</option>
+                                        <option value="professional">Professional</option>
+                                        <option value="premium">Premium/Broadcast</option>
+                                    </select>
+                                </div>
+                                <button id="generateWorkflow" class="workflow-btn">Generate Workflow</button>
+                            </div>
+                            
+                            <div class="workflow-output" id="workflowOutput">
+                                <!-- Generated workflow will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Software Development -->
+                <article id="software-development" class="subsection">
+                    <h3>5.3 AI for Software Development: The Next Generation of Coding Assistants</h3>
+                    
+                    <!-- Development Tools Comparison -->
+                    <div class="dev-tools-comparison">
+                        <h4>AI Coding Assistant Comparison</h4>
+                        <div class="dev-tools-grid">
+                            <div class="dev-tool-card advanced">
+                                <div class="tool-header">
+                                    <h5>GPT-5 / Claude 4 Sonnet</h5>
+                                    <div class="capability-level">🚀 Advanced</div>
+                                </div>
+                                <div class="tool-capabilities">
+                                    <div class="capability-category">
+                                        <h6>Code Generation:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 95%"></div>
+                                            <span>95%</span>
+                                        </div>
+                                    </div>
+                                    <div class="capability-category">
+                                        <h6>Debugging:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 90%"></div>
+                                            <span>90%</span>
+                                        </div>
+                                    </div>
+                                    <div class="capability-category">
+                                        <h6>Code Review:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 88%"></div>
+                                            <span>88%</span>
+                                        </div>
+                                    </div>
+                                    <div class="capability-category">
+                                        <h6>Documentation:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 92%"></div>
+                                            <span>92%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tool-features">
+                                    <ul>
+                                        <li>✅ Complex algorithm implementation</li>
+                                        <li>✅ Multi-file project understanding</li>
+                                        <li>✅ Architecture design assistance</li>
+                                        <li>✅ Test case generation</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-info">
+                                    <span class="price">$20-40/month</span>
+                                    <span class="pricing-note">API usage</span>
+                                </div>
+                            </div>
+
+                            <div class="dev-tool-card intermediate">
+                                <div class="tool-header">
+                                    <h5>GitHub Copilot</h5>
+                                    <div class="capability-level">⚡ Intermediate</div>
+                                </div>
+                                <div class="tool-capabilities">
+                                    <div class="capability-category">
+                                        <h6>Code Generation:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 80%"></div>
+                                            <span>80%</span>
+                                        </div>
+                                    </div>
+                                    <div class="capability-category">
+                                        <h6>Debugging:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 70%"></div>
+                                            <span>70%</span>
+                                        </div>
+                                    </div>
+                                    <div class="capability-category">
+                                        <h6>Code Review:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 65%"></div>
+                                            <span>65%</span>
+                                        </div>
+                                    </div>
+                                    <div class="capability-category">
+                                        <h6>Documentation:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 75%"></div>
+                                            <span>75%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tool-features">
+                                    <ul>
+                                        <li>✅ IDE integration (VS Code)</li>
+                                        <li>✅ Real-time suggestions</li>
+                                        <li>✅ Context-aware completions</li>
+                                        <li>⚠️ Limited complex reasoning</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-info">
+                                    <span class="price">$10/month</span>
+                                    <span class="pricing-note">Individual</span>
+                                </div>
+                            </div>
+
+                            <div class="dev-tool-card specialized">
+                                <div class="tool-header">
+                                    <h5>Cursor / Aider</h5>
+                                    <div class="capability-level">🎯 Specialized</div>
+                                </div>
+                                <div class="tool-capabilities">
+                                    <div class="capability-category">
+                                        <h6>Code Generation:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 85%"></div>
+                                            <span>85%</span>
+                                        </div>
+                                    </div>
+                                    <div class="capability-category">
+                                        <h6>Debugging:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 82%"></div>
+                                            <span>82%</span>
+                                        </div>
+                                    </div>
+                                    <div class="capability-category">
+                                        <h6>Code Review:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 78%"></div>
+                                            <span>78%</span>
+                                        </div>
+                                    </div>
+                                    <div class="capability-category">
+                                        <h6>Documentation:</h6>
+                                        <div class="capability-bar">
+                                            <div class="capability-fill" style="width: 80%"></div>
+                                            <span>80%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tool-features">
+                                    <ul>
+                                        <li>✅ Codebase-wide understanding</li>
+                                        <li>✅ AI-first editor design</li>
+                                        <li>✅ Multi-file editing</li>
+                                        <li>✅ Local and cloud models</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-info">
+                                    <span class="price">$20/month</span>
+                                    <span class="pricing-note">Pro plan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Development Workflow Optimizer -->
+                    <div class="dev-workflow-optimizer">
+                        <h4>Development Workflow Optimization Assistant</h4>
+                        <div class="optimizer-form">
+                            <div class="optimizer-inputs">
+                                <div class="input-group">
+                                    <label for="devTeamSize">Team Size:</label>
+                                    <input type="number" id="devTeamSize" value="5" min="1" max="100">
+                                </div>
+                                <div class="input-group">
+                                    <label for="primaryLanguages">Primary Languages:</label>
+                                    <select id="primaryLanguages" multiple>
+                                        <option value="javascript">JavaScript/TypeScript</option>
+                                        <option value="python">Python</option>
+                                        <option value="java">Java</option>
+                                        <option value="csharp">C#</option>
+                                        <option value="go">Go</option>
+                                        <option value="rust">Rust</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="developmentStyle">Development Style:</label>
+                                    <select id="developmentStyle">
+                                        <option value="agile">Agile/Scrum</option>
+                                        <option value="waterfall">Waterfall</option>
+                                        <option value="devops">DevOps/Continuous</option>
+                                        <option value="startup">Fast-paced Startup</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="painPoints">Biggest Pain Points:</label>
+                                    <select id="painPoints" multiple>
+                                        <option value="code-quality">Code Quality</option>
+                                        <option value="development-speed">Development Speed</option>
+                                        <option value="bug-detection">Bug Detection</option>
+                                        <option value="documentation">Documentation</option>
+                                        <option value="testing">Testing Coverage</option>
+                                        <option value="code-review">Code Review Process</option>
+                                    </select>
+                                </div>
+                                <button id="optimizeWorkflow" class="optimize-btn">Get Optimization Recommendations</button>
+                            </div>
+                            
+                            <div class="optimization-results" id="optimizationResults">
+                                <!-- Optimization recommendations will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Strategic Framework -->
+                <article class="subsection">
+                    <h3>5.4 Strategic Framework for AI Tool Selection</h3>
+                    
+                    <!-- Decision Matrix -->
+                    <div class="decision-matrix">
+                        <h4>AI Tool Selection Decision Matrix</h4>
+                        <div class="matrix-explanation">
+                            <p>Use this framework to systematically evaluate AI tools for your organization. Rate each factor from 1-5 based on importance to your needs.</p>
+                        </div>
+                        
+                        <div class="decision-form">
+                            <div class="decision-factors">
+                                <div class="factor-group">
+                                    <h5>Business Alignment</h5>
+                                    <div class="factor-slider">
+                                        <label for="businessGoals">Alignment with Business Goals:</label>
+                                        <input type="range" id="businessGoals" min="1" max="5" value="3">
+                                        <span class="slider-value">3</span>
+                                    </div>
+                                    <div class="factor-slider">
+                                        <label for="userAdoption">Ease of User Adoption:</label>
+                                        <input type="range" id="userAdoption" min="1" max="5" value="3">
+                                        <span class="slider-value">3</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="factor-group">
+                                    <h5>Technical Considerations</h5>
+                                    <div class="factor-slider">
+                                        <label for="integration">Integration Complexity:</label>
+                                        <input type="range" id="integration" min="1" max="5" value="3">
+                                        <span class="slider-value">3</span>
+                                    </div>
+                                    <div class="factor-slider">
+                                        <label for="scalability">Scalability Requirements:</label>
+                                        <input type="range" id="scalability" min="1" max="5" value="3">
+                                        <span class="slider-value">3</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="factor-group">
+                                    <h5>Risk & Compliance</h5>
+                                    <div class="factor-slider">
+                                        <label for="dataSecurity">Data Security Requirements:</label>
+                                        <input type="range" id="dataSecurity" min="1" max="5" value="3">
+                                        <span class="slider-value">3</span>
+                                    </div>
+                                    <div class="factor-slider">
+                                        <label for="compliance">Regulatory Compliance:</label>
+                                        <input type="range" id="compliance" min="1" max="5" value="3">
+                                        <span class="slider-value">3</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="factor-group">
+                                    <h5>Economic Factors</h5>
+                                    <div class="factor-slider">
+                                        <label for="costSensitivity">Cost Sensitivity:</label>
+                                        <input type="range" id="costSensitivity" min="1" max="5" value="3">
+                                        <span class="slider-value">3</span>
+                                    </div>
+                                    <div class="factor-slider">
+                                        <label for="roiTimeline">ROI Timeline Expectations:</label>
+                                        <input type="range" id="roiTimeline" min="1" max="5" value="3">
+                                        <span class="slider-value">3</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button id="generateRecommendations" class="recommendation-btn">Generate Personalized Recommendations</button>
+                            
+                            <div class="recommendations-output" id="recommendationsOutput">
+                                <!-- Personalized recommendations will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </section>
 
             <!-- Section 6: Future Outlook -->
             <section id="section-6" class="content-section">
                 <h2>Section 6: Future Outlook: Emerging Trends for 2026 and Beyond</h2>
-                <!-- Trend timeline, prediction confidence indicators, scenario planning -->
+                <p class="section-intro">As the AI ecosystem stabilizes around the agentic paradigm in 2025, the trajectory for the coming years is becoming clearer. The relentless pace of innovation will continue, driven by key trends that will shape the next generation of AI technology.</p>
+
+                <!-- Emerging Trends Timeline -->
+                <div class="trends-timeline">
+                    <h3>Interactive Trends Timeline</h3>
+                    <div class="timeline-controls">
+                        <button class="timeline-btn active" data-year="2025">2025</button>
+                        <button class="timeline-btn" data-year="2026">2026</button>
+                        <button class="timeline-btn" data-year="2027">2027</button>
+                        <button class="timeline-btn" data-year="2028">2028+</button>
+                    </div>
+
+                    <div class="timeline-content">
+                        <div id="timeline-2025" class="timeline-year active">
+                            <div class="trend-cards">
+                                <div class="trend-card current">
+                                    <div class="trend-header">
+                                        <h4>🚀 Agentic AI Maturation</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 95%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 95%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>Multi-agent systems become the standard for complex enterprise workflows. MCP platforms reach production maturity.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level very-high">Very High</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trend-card current">
+                                    <div class="trend-header">
+                                        <h4>🔧 Developer Tool Revolution</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 90%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 90%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>AI coding assistants become indispensable, shifting developer role from writing code to orchestrating AI agents.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level high">High</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trend-card current">
+                                    <div class="trend-header">
+                                        <h4>📊 Open Source Acceleration</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 85%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 85%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>Open source models achieve near-parity with proprietary counterparts, driving hybrid AI strategies.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level high">High</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="timeline-2026" class="timeline-year">
+                            <div class="trend-cards">
+                                <div class="trend-card emerging">
+                                    <div class="trend-header">
+                                        <h4>🧠 Reasoning Models Breakthrough</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 80%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 80%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>Advanced reasoning models (o-series successors) achieve PhD-level problem solving across multiple domains.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level very-high">Very High</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trend-card emerging">
+                                    <div class="trend-header">
+                                        <h4>📱 Edge AI Revolution</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 75%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 75%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>Powerful AI models run directly on consumer devices, reducing latency and enhancing privacy.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level high">High</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trend-card emerging">
+                                    <div class="trend-header">
+                                        <h4>🏛️ Regulation Standardization</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 70%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 70%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>Global AI governance frameworks emerge, creating standardized safety and compliance requirements.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level medium">Medium</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="timeline-2027" class="timeline-year">
+                            <div class="trend-cards">
+                                <div class="trend-card speculative">
+                                    <div class="trend-header">
+                                        <h4>🤖 AGI Emergence</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 40%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 40%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>First systems demonstrating general intelligence across broad domains begin to emerge from leading labs.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level very-high">Transformative</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trend-card speculative">
+                                    <div class="trend-header">
+                                        <h4>🔬 Scientific Discovery AI</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 60%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 60%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>AI systems independently make significant scientific discoveries in materials science, drug discovery, and physics.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level very-high">Very High</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trend-card speculative">
+                                    <div class="trend-header">
+                                        <h4>🌐 AI-Native Economy</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 55%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 55%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>Autonomous AI agents conduct business transactions and economic activities with minimal human oversight.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level high">High</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="timeline-2028" class="timeline-year">
+                            <div class="trend-cards">
+                                <div class="trend-card speculative">
+                                    <div class="trend-header">
+                                        <h4>🌟 Post-AGI Landscape</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 25%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 25%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>Society adapts to the presence of artificial general intelligence, reshaping work, education, and governance.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level very-high">Civilizational</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trend-card speculative">
+                                    <div class="trend-header">
+                                        <h4>🛡️ AI Safety Maturation</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 65%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 65%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>Robust AI alignment and safety measures become standard, enabling safe deployment of increasingly capable systems.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level very-high">Critical</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trend-card speculative">
+                                    <div class="trend-header">
+                                        <h4>🌍 Global AI Infrastructure</h4>
+                                        <div class="confidence-indicator">
+                                            <span>Confidence: 70%</span>
+                                            <div class="confidence-bar"><div class="confidence-fill" style="width: 70%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="trend-content">
+                                        <p>AI becomes as fundamental as electricity or internet, with global infrastructure ensuring universal access.</p>
+                                        <div class="trend-impact">
+                                            <span class="impact-label">Impact:</span>
+                                            <span class="impact-level very-high">Very High</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Maturity Assessment -->
+                <div class="technology-maturity">
+                    <h3>Technology Maturity Radar</h3>
+                    <div class="maturity-container">
+                        <div class="radar-chart">
+                            <canvas id="maturityRadarChart"></canvas>
+                        </div>
+                        <div class="maturity-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #4A90E2"></div>
+                                <span>Current State (2025)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #51CF66"></div>
+                                <span>Projected 2027</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #FF6B6B"></div>
+                                <span>Aspirational 2030</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario Planning Tool -->
+                <div class="scenario-planning">
+                    <h3>AI Future Scenario Planner</h3>
+                    <div class="scenario-interface">
+                        <div class="scenario-controls">
+                            <div class="scenario-factors">
+                                <div class="factor-slider">
+                                    <label for="agiBridgeTimeline">AGI Development Speed:</label>
+                                    <input type="range" id="agiBridgeTimeline" min="1" max="5" value="3">
+                                    <div class="factor-labels">
+                                        <span>Slow (2035+)</span>
+                                        <span>Fast (2026)</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="factor-slider">
+                                    <label for="regulationIntensity">Regulatory Response:</label>
+                                    <input type="range" id="regulationIntensity" min="1" max="5" value="3">
+                                    <div class="factor-labels">
+                                        <span>Light Touch</span>
+                                        <span>Heavy Regulation</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="factor-slider">
+                                    <label for="openSourceGrowth">Open Source Growth:</label>
+                                    <input type="range" id="openSourceGrowth" min="1" max="5" value="3">
+                                    <div class="factor-labels">
+                                        <span>Proprietary Dominance</span>
+                                        <span>Open Source Victory</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="factor-slider">
+                                    <label for="geopoliticalTension">Geopolitical Cooperation:</label>
+                                    <input type="range" id="geopoliticalTension" min="1" max="5" value="3">
+                                    <div class="factor-labels">
+                                        <span>High Tension</span>
+                                        <span>Global Cooperation</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button id="generateScenario" class="scenario-btn">Generate Future Scenario</button>
+                        </div>
+                        
+                        <div class="scenario-output" id="scenarioOutput">
+                            <!-- Generated scenario will appear here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk and Opportunity Matrix -->
+                <div class="risk-opportunity-matrix">
+                    <h3>Strategic Risk & Opportunity Assessment</h3>
+                    <div class="matrix-grid-container">
+                        <div class="matrix-quadrants">
+                            <div class="quadrant high-probability high-impact">
+                                <h4>High Probability, High Impact</h4>
+                                <div class="matrix-items">
+                                    <div class="matrix-item opportunity">
+                                        <h5>🚀 Agentic Workflow Automation</h5>
+                                        <p>Massive productivity gains across knowledge work</p>
+                                        <span class="probability">Probability: 85%</span>
+                                    </div>
+                                    <div class="matrix-item risk">
+                                        <h5>⚠️ AI-Driven Job Displacement</h5>
+                                        <p>Significant workforce transitions required</p>
+                                        <span class="probability">Probability: 80%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="quadrant high-probability low-impact">
+                                <h4>High Probability, Low Impact</h4>
+                                <div class="matrix-items">
+                                    <div class="matrix-item opportunity">
+                                        <h5>📱 Consumer AI Assistants</h5>
+                                        <p>Gradual integration into daily life</p>
+                                        <span class="probability">Probability: 90%</span>
+                                    </div>
+                                    <div class="matrix-item risk">
+                                        <h5>🔒 Privacy Concerns</h5>
+                                        <p>Ongoing data usage debates</p>
+                                        <span class="probability">Probability: 85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="quadrant low-probability high-impact">
+                                <h4>Low Probability, High Impact</h4>
+                                <div class="matrix-items">
+                                    <div class="matrix-item opportunity">
+                                        <h5>🧬 Scientific Breakthrough Acceleration</h5>
+                                        <p>AI-driven discoveries transform medicine, materials</p>
+                                        <span class="probability">Probability: 30%</span>
+                                    </div>
+                                    <div class="matrix-item risk">
+                                        <h5>🚨 AI Control Problems</h5>
+                                        <p>Alignment failures in advanced systems</p>
+                                        <span class="probability">Probability: 20%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="quadrant low-probability low-impact">
+                                <h4>Low Probability, Low Impact</h4>
+                                <div class="matrix-items">
+                                    <div class="matrix-item opportunity">
+                                        <h5>🎨 AI Art Democratization</h5>
+                                        <p>Everyone becomes a creative professional</p>
+                                        <span class="probability">Probability: 40%</span>
+                                    </div>
+                                    <div class="matrix-item risk">
+                                        <h5>📉 AI Bubble Burst</h5>
+                                        <p>Market correction in AI valuations</p>
+                                        <span class="probability">Probability: 35%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategic Preparation Checklist -->
+                <div class="preparation-checklist">
+                    <h3>Strategic Preparation Checklist for Organizations</h3>
+                    <div class="checklist-categories">
+                        <div class="checklist-category">
+                            <h4>🎯 Strategic Planning</h4>
+                            <div class="checklist-items">
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Develop AI strategy aligned with business objectives
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Identify high-impact use cases for AI implementation
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Assess competitive AI adoption in your industry
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Create roadmap for gradual AI integration
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="checklist-category">
+                            <h4>👥 Workforce Preparation</h4>
+                            <div class="checklist-items">
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Audit current skills and identify AI training needs
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Develop AI literacy programs for all employees
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Plan for role evolution and reskilling initiatives
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Hire or train AI specialists and data scientists
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="checklist-category">
+                            <h4>🔧 Technical Infrastructure</h4>
+                            <div class="checklist-items">
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Evaluate data quality and accessibility
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Establish cloud infrastructure for AI workloads
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Implement MLOps and model management processes
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Create APIs and integration points for AI services
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="checklist-category">
+                            <h4>⚖️ Governance & Ethics</h4>
+                            <div class="checklist-items">
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Establish AI ethics committee and guidelines
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Implement bias detection and mitigation processes
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Ensure compliance with data protection regulations
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox">
+                                    <span class="checkmark"></span>
+                                    Create transparency and explainability standards
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="checklist-progress">
+                        <div class="progress-indicator">
+                            <span id="checklistProgress">0%</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                        </div>
+                        <div class="progress-message" id="progressMessage">
+                            Get started by checking off completed items to track your AI readiness!
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Interactive Glossary -->
             <section id="glossary" class="content-section">
                 <h2>Interactive AI Glossary</h2>
-                <!-- Enhanced search, categorization, concept mapping -->
+                <p class="section-intro">A comprehensive, neurodivergence-friendly glossary of essential AI terminology, designed for clarity and accessibility for all learners.</p>
+
+                <!-- Glossary Controls -->
+                <div class="glossary-controls">
+                    <div class="search-and-filters">
+                        <div class="glossary-search">
+                            <input type="text" id="glossarySearch" placeholder="Search terms, definitions, or examples..." class="glossary-search-input">
+                            <button id="glossarySearchBtn" class="glossary-search-btn">🔍</button>
+                        </div>
+                        
+                        <div class="glossary-filters">
+                            <div class="filter-group">
+                                <label for="categoryFilter">Category:</label>
+                                <select id="categoryFilter">
+                                    <option value="all">All Categories</option>
+                                    <option value="core-concepts">Core Concepts</option>
+                                    <option value="architectures">Model Architectures</option>
+                                    <option value="training">Training & Learning</option>
+                                    <option value="applications">Applications</option>
+                                    <option value="business">Business & Ethics</option>
+                                </select>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label for="difficultyFilter">Difficulty:</label>
+                                <select id="difficultyFilter">
+                                    <option value="all">All Levels</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                            
+                            <div class="view-toggle">
+                                <button id="cardView" class="view-btn active">📇 Cards</button>
+                                <button id="listView" class="view-btn">📄 List</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glossary-stats">
+                        <span id="termCount">50+ terms</span>
+                        <span id="categoryCount">5 categories</span>
+                        <span class="accessibility-note">♿ Accessibility optimized</span>
+                    </div>
+                </div>
+
+                <!-- Glossary Content -->
+                <div class="glossary-content">
+                    <!-- Letter Navigation -->
+                    <div class="letter-navigation">
+                        <div class="alphabet-nav">
+                            <button class="letter-btn" data-letter="A">A</button>
+                            <button class="letter-btn" data-letter="B">B</button>
+                            <button class="letter-btn" data-letter="C">C</button>
+                            <button class="letter-btn" data-letter="D">D</button>
+                            <button class="letter-btn" data-letter="E">E</button>
+                            <button class="letter-btn" data-letter="F">F</button>
+                            <button class="letter-btn" data-letter="G">G</button>
+                            <button class="letter-btn" data-letter="L">L</button>
+                            <button class="letter-btn" data-letter="M">M</button>
+                            <button class="letter-btn" data-letter="N">N</button>
+                            <button class="letter-btn" data-letter="R">R</button>
+                            <button class="letter-btn" data-letter="T">T</button>
+                        </div>
+                    </div>
+
+                    <!-- Terms Container -->
+                    <div class="glossary-terms" id="glossaryTerms">
+                        <!-- Terms will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Concept Relationships -->
+                <div class="concept-relationships">
+                    <h3>AI Concept Relationships</h3>
+                    <div class="relationship-explanation">
+                        <p>Explore how AI concepts connect to each other. Click on any term to see its relationships and dependencies.</p>
+                    </div>
+                    
+                    <div class="concept-map-container">
+                        <div class="concept-map" id="conceptMap">
+                            <!-- Concept relationship visualization will be generated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Reference Cards -->
+                <div class="quick-reference">
+                    <h3>Quick Reference: Key Concepts</h3>
+                    <div class="reference-grid">
+                        <div class="reference-card" data-concept="ai">
+                            <h4>🤖 Artificial Intelligence</h4>
+                            <p class="quick-definition">The simulation of human intelligence processes by machines</p>
+                            <div class="related-terms">
+                                <span class="term-tag">Machine Learning</span>
+                                <span class="term-tag">Deep Learning</span>
+                                <span class="term-tag">Neural Networks</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reference-card" data-concept="llm">
+                            <h4>📝 Large Language Model</h4>
+                            <p class="quick-definition">AI trained on vast text data to understand and generate human language</p>
+                            <div class="related-terms">
+                                <span class="term-tag">Transformer</span>
+                                <span class="term-tag">GPT</span>
+                                <span class="term-tag">Token</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reference-card" data-concept="agent">
+                            <h4>🎯 AI Agent</h4>
+                            <p class="quick-definition">A system that can perceive its environment and take autonomous actions</p>
+                            <div class="related-terms">
+                                <span class="term-tag">Agentic AI</span>
+                                <span class="term-tag">Tool Use</span>
+                                <span class="term-tag">MCP</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reference-card" data-concept="training">
+                            <h4>🎓 Machine Learning</h4>
+                            <p class="quick-definition">The process of teaching computers to learn patterns from data</p>
+                            <div class="related-terms">
+                                <span class="term-tag">Training Data</span>
+                                <span class="term-tag">Algorithm</span>
+                                <span class="term-tag">Model</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reference-card" data-concept="transformer">
+                            <h4>🔄 Transformer</h4>
+                            <p class="quick-definition">The architecture that revolutionized natural language processing</p>
+                            <div class="related-terms">
+                                <span class="term-tag">Attention</span>
+                                <span class="term-tag">BERT</span>
+                                <span class="term-tag">GPT</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reference-card" data-concept="embedding">
+                            <h4>📊 Embedding</h4>
+                            <p class="quick-definition">Numerical representations that capture the meaning of words or data</p>
+                            <div class="related-terms">
+                                <span class="term-tag">Vector</span>
+                                <span class="term-tag">Semantic Search</span>
+                                <span class="term-tag">RAG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning Path Suggestions -->
+                <div class="learning-paths">
+                    <h3>Suggested Learning Paths</h3>
+                    <div class="path-container">
+                        <div class="learning-path" data-level="beginner">
+                            <div class="path-header">
+                                <h4>🌱 Beginner Path</h4>
+                                <span class="path-duration">~2 hours</span>
+                            </div>
+                            <div class="path-steps">
+                                <div class="path-step">1. Artificial Intelligence</div>
+                                <div class="path-step">2. Machine Learning</div>
+                                <div class="path-step">3. Neural Networks</div>
+                                <div class="path-step">4. Large Language Model</div>
+                                <div class="path-step">5. Chatbot</div>
+                            </div>
+                            <button class="start-path-btn" data-path="beginner">Start Learning Path</button>
+                        </div>
+                        
+                        <div class="learning-path" data-level="intermediate">
+                            <div class="path-header">
+                                <h4>⚡ Intermediate Path</h4>
+                                <span class="path-duration">~3 hours</span>
+                            </div>
+                            <div class="path-steps">
+                                <div class="path-step">1. Transformer Architecture</div>
+                                <div class="path-step">2. Attention Mechanism</div>
+                                <div class="path-step">3. Fine-tuning</div>
+                                <div class="path-step">4. Embeddings</div>
+                                <div class="path-step">5. RAG</div>
+                            </div>
+                            <button class="start-path-btn" data-path="intermediate">Start Learning Path</button>
+                        </div>
+                        
+                        <div class="learning-path" data-level="advanced">
+                            <div class="path-header">
+                                <h4>🚀 Advanced Path</h4>
+                                <span class="path-duration">~4 hours</span>
+                            </div>
+                            <div class="path-steps">
+                                <div class="path-step">1. AI Agent</div>
+                                <div class="path-step">2. Agentic AI</div>
+                                <div class="path-step">3. Multi-Agent Systems</div>
+                                <div class="path-step">4. Tool Learning</div>
+                                <div class="path-step">5. AGI Concepts</div>
+                            </div>
+                            <button class="start-path-btn" data-path="advanced">Start Learning Path</button>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
