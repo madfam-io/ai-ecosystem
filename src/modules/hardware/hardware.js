@@ -1,14 +1,19 @@
 /**
  * Hardware Module - Hardware simulator and specs
  */
+import { hardwareTypes, performanceData, cudaEcosystem, chartConfig } from '@data/hardware.js';
+
 export class HardwareModule {
   constructor() {
     this.isInitialized = false;
     this.currentTab = 'cpu';
+    this.hardwareData = hardwareTypes;
+    this.chart = null;
   }
 
   async init() {
     try {
+      this.renderHardwareSimulator();
       this.initializeHardwareTabs();
       this.setupPerformanceChart();
       
@@ -16,6 +21,99 @@ export class HardwareModule {
       console.log('✓ Hardware module initialized with interactive simulator');
     } catch (error) {
       console.error('Failed to initialize hardware module:', error);
+    }
+  }
+
+  renderHardwareSimulator() {
+    const container = document.getElementById('hardwareSimulator');
+    if (!container) return;
+
+    // Generate the complete hardware simulator HTML
+    container.innerHTML = `
+      <h4>Interactive Hardware Comparison</h4>
+      <div class="hardware-tabs">
+        ${Object.keys(this.hardwareData).map((key, index) => 
+          `<button class="tab-btn ${index === 0 ? 'active' : ''}" data-tab="${key}">${this.hardwareData[key].name.split('(')[1].replace(')', '')}</button>`
+        ).join('')}
+      </div>
+      
+      <div class="hardware-content">
+        ${Object.entries(this.hardwareData).map(([key, hardware], index) => 
+          `<div id="${key}-tab" class="tab-content ${index === 0 ? 'active' : ''}">
+            <div class="hardware-specs">
+              <div class="spec-visual">
+                ${this.generateVisualization(hardware)}
+                <p>${hardware.description}</p>
+              </div>
+              <div class="spec-details">
+                <h5>${hardware.name}</h5>
+                <ul>
+                  <li><strong>Architecture:</strong> ${hardware.specs.architecture}</li>
+                  <li><strong>Optimized for:</strong> ${hardware.specs.optimizedFor}</li>
+                  <li><strong>AI Training Time:</strong> ${hardware.specs.aiTrainingTime}</li>
+                  <li><strong>Best for:</strong> ${hardware.specs.bestFor}</li>
+                </ul>
+              </div>
+            </div>
+          </div>`
+        ).join('')}
+      </div>
+      
+      <!-- Performance Chart -->
+      <div class="performance-chart">
+        <canvas id="hardwarePerformanceChart"></canvas>
+      </div>
+
+      <!-- CUDA Ecosystem -->
+      <div class="cuda-ecosystem">
+        <h4>${cudaEcosystem.title}</h4>
+        <div class="ecosystem-diagram">
+          ${cudaEcosystem.layers.map(layer => 
+            `<div class="cuda-layer ${layer.className}">
+              <h5>${layer.title}</h5>
+              <p>${layer.description}</p>
+              ${layer.items ? `
+                <div class="${layer.id === 'cuda-libraries' ? 'library-items' : 'framework-items'}">
+                  ${layer.items.map(item => 
+                    `<span class="${layer.id === 'cuda-libraries' ? 'library-item' : 'framework-item'}">${item}</span>`
+                  ).join('')}
+                </div>
+              ` : ''}
+            </div>`
+          ).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  generateVisualization(hardware) {
+    const viz = hardware.visualization;
+    
+    switch (viz.type) {
+      case 'cores':
+        return `
+          <div class="${viz.className}">
+            ${Array(viz.count).fill(0).map(() => '<div class="core"></div>').join('')}
+          </div>
+        `;
+      case 'grid':
+        return `
+          <div class="${viz.className}">
+            <div class="core-grid">
+              ${Array(viz.count).fill(0).map(() => '<div class="mini-core"></div>').join('')}
+            </div>
+          </div>
+        `;
+      case 'array':
+        return `
+          <div class="${viz.className}">
+            <div class="systolic-array">
+              ${Array(viz.count).fill(0).map(() => '<div class="array-cell"></div>').join('')}
+            </div>
+          </div>
+        `;
+      default:
+        return '<div class="default-visual">Hardware Visualization</div>';
     }
   }
 
@@ -80,61 +178,12 @@ export class HardwareModule {
     
     const ctx = chartContainer.getContext('2d');
     
-    const performanceData = {
-      labels: ['Training Speed', 'Energy Efficiency', 'Cost Effectiveness', 'Parallel Processing'],
-      datasets: [
-        {
-          label: 'CPU',
-          data: [20, 60, 80, 30],
-          backgroundColor: 'rgba(0, 35, 73, 0.6)',
-          borderColor: 'rgba(0, 35, 73, 1)',
-          borderWidth: 2
-        },
-        {
-          label: 'GPU',
-          data: [80, 40, 60, 90],
-          backgroundColor: 'rgba(74, 144, 226, 0.6)',
-          borderColor: 'rgba(74, 144, 226, 1)',
-          borderWidth: 2
-        },
-        {
-          label: 'TPU',
-          data: [95, 80, 40, 95],
-          backgroundColor: 'rgba(255, 107, 107, 0.6)',
-          borderColor: 'rgba(255, 107, 107, 1)',
-          borderWidth: 2
-        }
-      ]
-    };
-
     const config = {
-      type: 'radar',
-      data: performanceData,
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            beginAtZero: true,
-            max: 100,
-            ticks: {
-              stepSize: 20
-            }
-          }
-        },
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          title: {
-            display: true,
-            text: 'Hardware Performance Comparison'
-          }
-        }
-      }
+      ...chartConfig,
+      data: performanceData
     };
 
-    new Chart(ctx, config);
+    this.chart = new Chart(ctx, config);
   }
 
   handleResponsiveChange(isMobile) {
@@ -159,6 +208,11 @@ export class HardwareModule {
     tabButtons.forEach(button => {
       button.removeEventListener('click', () => {});
     });
+    
+    if (this.chart) {
+      this.chart.destroy();
+      this.chart = null;
+    }
     
     this.isInitialized = false;
   }

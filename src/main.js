@@ -11,6 +11,7 @@ import { AccessibilityHelper } from '@utils/accessibility.js';
 import { NavigationManager } from '@modules/navigation/navigation.js';
 import { DashboardModule } from '@modules/dashboard/dashboard.js';
 import { HardwareModule } from '@modules/hardware/hardware.js';
+import { FrameworksModule } from '@modules/frameworks/frameworks.js';
 import { ModelsModule } from '@modules/models/models.js';
 import { AgentsModule } from '@modules/agents/agents.js';
 import { PlatformsModule } from '@modules/platforms/platforms.js';
@@ -88,6 +89,7 @@ class AIEcosystemApp {
       { name: 'navigation', module: NavigationManager, priority: 1 },
       { name: 'dashboard', module: DashboardModule, priority: 2 },
       { name: 'hardware', module: HardwareModule, priority: 3 },
+      { name: 'frameworks', module: FrameworksModule, priority: 3 },
       { name: 'models', module: ModelsModule, priority: 3 },
       { name: 'agents', module: AgentsModule, priority: 3 },
       { name: 'platforms', module: PlatformsModule, priority: 3 },
