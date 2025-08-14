@@ -239,11 +239,22 @@ class AIEcosystemApp {
   }
 }
 
+// Content visibility is now handled by inline CSS in HTML head
+
 // Initialize the application when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
   window.aiEcosystemApp = new AIEcosystemApp();
   await window.aiEcosystemApp.init();
 });
+
+// Fallback for when DOMContentLoaded has already fired
+if (document.readyState === 'loading') {
+  // Do nothing, DOMContentLoaded will fire
+} else {
+  // DOM is already ready
+  window.aiEcosystemApp = new AIEcosystemApp();
+  window.aiEcosystemApp.init();
+}
 
 // Hot Module Replacement support for development
 if (import.meta.hot) {

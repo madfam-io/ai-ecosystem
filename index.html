@@ -24,6 +24,350 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Critical CSS inline for immediate styling -->
+    <style>
+        /* CSS Custom Properties for Theming */
+        :root {
+            --primary-color: #002349;
+            --secondary-color: #4A90E2;
+            --accent-color: #FF6B6B;
+            --success-color: #51CF66;
+            --warning-color: #FFD93D;
+            --error-color: #FF5252;
+            --background-color: #f8fafc;
+            --surface-color: #ffffff;
+            --surface-elevated: #f1f5f9;
+            --border-color: #e2e8f0;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --border-radius-sm: 0.375rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --border-radius-xl: 1rem;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition-fast: 150ms ease-in-out;
+            --transition-normal: 300ms ease-in-out;
+        }
+
+        /* Global Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            font-size: var(--font-size-base);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        h1 { font-size: var(--font-size-4xl); font-weight: 700; }
+        h2 { font-size: var(--font-size-3xl); border-bottom: 2px solid var(--border-color); padding-bottom: var(--spacing-sm); }
+        h3 { font-size: var(--font-size-2xl); }
+        p { margin-bottom: var(--spacing-md); color: var(--text-secondary); }
+        strong { color: var(--text-primary); font-weight: 600; }
+
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: var(--spacing-2xl) var(--spacing-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-lg);
+        }
+        .header-content { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .header-subtitle { font-size: var(--font-size-lg); opacity: 0.9; margin-bottom: var(--spacing-lg); }
+
+        /* Search */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-sm);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .search-input {
+            flex: 1;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: none;
+            border-radius: var(--border-radius-lg);
+            font-size: var(--font-size-base);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+        }
+        .search-btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--accent-color);
+            border: none;
+            border-radius: var(--border-radius-lg);
+            color: white;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .search-btn:hover { background: #FF5252; transform: translateY(-1px); }
+
+        /* Layout */
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: var(--spacing-xl);
+            padding: var(--spacing-md);
+        }
+        .content { flex: 1; min-width: 0; }
+        .content-section {
+            background: var(--surface-color);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        /* Sidebar Navigation */
+        .sidebar-nav {
+            width: 280px;
+            background: var(--surface-color);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-lg);
+            height: fit-content;
+            position: sticky;
+            top: calc(120px + var(--spacing-md));
+        }
+        .nav-menu { list-style: none; }
+        .nav-section { margin-bottom: var(--spacing-md); }
+        .nav-link {
+            display: block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            transition: var(--transition-fast);
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: var(--surface-elevated);
+            color: var(--primary-color);
+        }
+        .nav-submenu {
+            list-style: none;
+            margin-left: var(--spacing-md);
+            margin-top: var(--spacing-sm);
+        }
+        .nav-sublink {
+            display: block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition-fast);
+        }
+        .nav-sublink:hover {
+            background: var(--surface-elevated);
+            color: var(--secondary-color);
+        }
+        #menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Dashboard Components */
+        .dashboard-container { margin-bottom: var(--spacing-2xl); }
+        .market-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+        .metric-card {
+            background: linear-gradient(135deg, var(--surface-color) 0%, var(--surface-elevated) 100%);
+            border-radius: var(--border-radius-xl);
+            padding: var(--spacing-xl);
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        }
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary-color);
+        }
+        .metric-value {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: var(--spacing-md) 0;
+            line-height: 1;
+        }
+        .metric-description {
+            color: var(--text-muted);
+            font-size: var(--font-size-sm);
+            margin: 0;
+        }
+
+        /* Ecosystem Map */
+        .ecosystem-map { margin-bottom: var(--spacing-2xl); }
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        .ecosystem-layer {
+            background: var(--surface-elevated);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            border: 2px solid var(--border-color);
+            transition: var(--transition-normal);
+        }
+        .ecosystem-layer:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .ecosystem-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        .ecosystem-item {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .ecosystem-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Brand Colors */
+        .ecosystem-item.openai { background: #74AA9C; }
+        .ecosystem-item.anthropic { background: #D2691E; }
+        .ecosystem-item.google { background: #4285F4; }
+        .ecosystem-item.meta { background: #1877F2; }
+        .ecosystem-item.mistral { background: #FF7000; }
+        .ecosystem-item.aws { background: #FF9900; }
+        .ecosystem-item.azure { background: #0078D4; }
+        .ecosystem-item.vertex { background: #4285F4; }
+        .ecosystem-item.deepseek { background: var(--primary-color); }
+
+        /* Paradigm Shift */
+        .paradigm-shift { margin-bottom: var(--spacing-2xl); }
+        .shift-timeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: var(--spacing-lg);
+            background: var(--surface-elevated);
+            border-radius: var(--border-radius-xl);
+            padding: var(--spacing-xl);
+        }
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            background: var(--surface-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+        }
+        .timeline-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .timeline-visual {
+            font-size: var(--font-size-2xl);
+            margin: var(--spacing-md) 0;
+        }
+        .timeline-arrow {
+            font-size: var(--font-size-2xl);
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin: 0 var(--spacing-md);
+        }
+
+        /* Summary text */
+        .summary-text {
+            background: var(--surface-elevated);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+            border-left: 4px solid var(--secondary-color);
+        }
+        .summary-text p {
+            font-size: var(--font-size-lg);
+            line-height: 1.625;
+            margin-bottom: var(--spacing-lg);
+        }
+        .summary-text p:last-child { margin-bottom: 0; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container { flex-direction: column; gap: var(--spacing-lg); }
+            .sidebar-nav { width: 100%; position: static; margin-bottom: var(--spacing-lg); }
+            #menu-toggle { display: block; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: var(--spacing-sm); }
+            .content-section { padding: var(--spacing-lg); }
+            .market-metrics { grid-template-columns: 1fr; }
+            .ecosystem-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    
+    <!-- Chart.js for data visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Skip Navigation for Accessibility -->
@@ -115,23 +459,92 @@
 
         <!-- Main Content -->
         <main class="content" id="main-content">
-            <!-- Executive Summary -->
+            <!-- Executive Summary with Interactive Dashboard -->
             <section id="summary" class="content-section">
                 <h2>Executive Summary</h2>
-                <p class="section-intro">The AI ecosystem in August 2025 represents a transformative moment in technological history.</p>
                 
-                <div class="summary-content">
-                    <p>The Artificial Intelligence (AI) ecosystem in August 2025 has reached a pivotal stage of maturation, transitioning from an era defined by the novelty of generative capabilities to one focused on applied, autonomous systems that are deeply integrated into both consumer and enterprise workflows. The landscape is no longer a simple race for larger parameter counts; instead, it is a complex, multi-faceted competition centered on <strong>reasoning, efficiency, tool integration, and the orchestration of intelligent agents</strong>.</p>
-                    
-                    <p>The market is currently dominated by a triad of frontier model developers—OpenAI, Anthropic, and Google—each pushing the boundaries of performance with their respective flagship model families (GPT-5, Claude 4, and Gemini 2.5). Concurrently, the open-source movement, led by Meta's Llama series and challengers like Mistral AI, has successfully democratized access to near-frontier-level performance, creating a vibrant ecosystem that offers enterprises a strategic alternative to proprietary platforms.</p>
+                <!-- Market Dynamics Dashboard -->
+                <div class="dashboard-container">
+                    <div class="market-metrics">
+                        <div class="metric-card" data-metric="market-size">
+                            <h3>Global AI Market</h3>
+                            <div class="metric-value" data-target="391">$0B</div>
+                            <p class="metric-description">Total market valuation in August 2025</p>
+                        </div>
+                        <div class="metric-card" data-metric="enterprise-spending">
+                            <h3>Enterprise AI Platform Spending</h3>
+                            <div class="metric-value" data-target="26.65">$0B</div>
+                            <p class="metric-description">Projected enterprise investment</p>
+                        </div>
+                        <div class="metric-card" data-metric="frontier-players">
+                            <h3>Frontier Model Leaders</h3>
+                            <div class="metric-value" data-target="3">0</div>
+                            <p class="metric-description">OpenAI, Anthropic, Google</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Key Metrics Dashboard -->
-                <div class="dashboard-container">
-                    <h3>Market Overview Dashboard</h3>
-                    <div class="market-metrics" id="marketMetrics">
-                        <!-- Market metrics will be populated by JavaScript -->
+                <!-- Ecosystem Map -->
+                <div class="ecosystem-map">
+                    <h3>AI Ecosystem Overview</h3>
+                    <div class="ecosystem-grid">
+                        <div class="ecosystem-layer" data-layer="proprietary">
+                            <h4>Proprietary Models</h4>
+                            <div class="ecosystem-items">
+                                <span class="ecosystem-item openai">GPT-5</span>
+                                <span class="ecosystem-item anthropic">Claude 4</span>
+                                <span class="ecosystem-item google">Gemini 2.5</span>
+                            </div>
+                        </div>
+                        <div class="ecosystem-layer" data-layer="open-source">
+                            <h4>Open Source</h4>
+                            <div class="ecosystem-items">
+                                <span class="ecosystem-item meta">Llama 4</span>
+                                <span class="ecosystem-item mistral">Mistral Large 2</span>
+                                <span class="ecosystem-item deepseek">DeepSeek R1</span>
+                            </div>
+                        </div>
+                        <div class="ecosystem-layer" data-layer="platforms">
+                            <h4>Access Platforms</h4>
+                            <div class="ecosystem-items">
+                                <span class="ecosystem-item aws">AWS Bedrock</span>
+                                <span class="ecosystem-item azure">Azure AI</span>
+                                <span class="ecosystem-item vertex">Vertex AI</span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Paradigm Shift Visualizer -->
+                <div class="paradigm-shift">
+                    <h3>The Paradigm Shift: From Passive to Agentic</h3>
+                    <div class="shift-container">
+                        <div class="shift-timeline">
+                            <div class="timeline-item" data-era="passive">
+                                <div class="timeline-content">
+                                    <h4>2022-2023: Passive Models</h4>
+                                    <p>Simple request-response patterns</p>
+                                    <div class="timeline-visual">🤖 → 📝</div>
+                                </div>
+                            </div>
+                            <div class="timeline-arrow">→</div>
+                            <div class="timeline-item" data-era="agentic">
+                                <div class="timeline-content">
+                                    <h4>2025: Agentic AI</h4>
+                                    <p>Multi-step autonomous task execution</p>
+                                    <div class="timeline-visual">🤖 ⚡ 🔧 → ✅</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-text">
+                    <p>The Artificial Intelligence (AI) ecosystem in August 2025 has reached a pivotal stage of maturation, transitioning from an era defined by the novelty of generative capabilities to one focused on applied, autonomous systems that are deeply integrated into both consumer and enterprise workflows. The landscape is no longer a simple race for larger parameter counts; instead, it is a complex, multi-faceted competition centered on <strong>reasoning, efficiency, tool integration, and the orchestration of intelligent agents</strong>.</p>
+                    
+                    <p>The market is currently dominated by a triad of frontier model developers—<strong>OpenAI, Anthropic, and Google</strong>—each pushing the boundaries of performance with their respective flagship model families (<strong>GPT-5, Claude 4, and Gemini 2.5</strong>). Concurrently, the open-source movement, led by <strong>Meta's Llama series</strong> and challengers like <strong>Mistral AI</strong>, has successfully democratized access to near-frontier-level performance.</p>
+                    
+                    <p>The most significant paradigm shift is the evolution from passive language models to active <strong>AI agents</strong> capable of performing multi-step tasks, using external tools, and interacting with the digital world to achieve complex goals. This has necessitated a new layer of infrastructure: the <strong>Multi-Agent Control Plane (MCP)</strong>, which provides the critical functions of routing, governance, and state management.</p>
                 </div>
             </section>
 
