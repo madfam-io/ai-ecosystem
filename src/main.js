@@ -55,6 +55,9 @@ class AIEcosystemApp {
       // Mark as initialized
       this.isInitialized = true;
       
+      // Hide loading overlay
+      this.hideLoadingOverlay();
+      
       this.performanceMonitor.end('app-init');
       console.log('✅ All modules initialized successfully');
       
@@ -63,7 +66,21 @@ class AIEcosystemApp {
       
     } catch (error) {
       console.error('❌ Failed to initialize application:', error);
+      this.hideLoadingOverlay();
       this.handleInitializationError(error);
+    }
+  }
+
+  /**
+   * Hide the loading overlay
+   */
+  hideLoadingOverlay() {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) {
+      overlay.classList.add('hidden');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 300);
     }
   }
 
